@@ -1,0 +1,74 @@
+<div class="container d-flex justify-content-center vh-100">
+    <h2>Create your new post!</h2>
+
+    <form class="container p-4" autocomplete="off" [formGroup]="formNewpost">
+
+        <div class="form-group">
+          <label for="url">Image</label>
+          <input 
+            type="url" 
+            class="form-control" 
+            placeholder="Insert an URL"
+            name="url"
+            formControlName="url"
+            [class.is-invalid]="urlInvalid" #imageUrl>  
+            <small 
+                *ngIf="urlInvalid"
+                 class="form-text text-danger">
+                     Indica una url valida.
+            </small>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Title</label>
+          <input 
+            type="text" 
+            class="form-control"
+            name="title"
+            formControlName="title"
+            [class.is-invalid]="titleInvalid" #title>
+            <small 
+                *ngIf="titleInvalid"
+                 class="form-text text-danger">
+                     Indica un título.
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Textarea</label>
+            <textarea 
+                class="form-control" 
+                id="exampleFormControlTextarea1" 
+                rows="5"
+                name="textpost"
+                formControlName="textpost"
+                [class.is-invalid]="textpostInvalid" #textpost>
+            </textarea>
+            <small 
+                *ngIf="textpostInvalid"
+                 class="form-text text-danger">
+                    Escribe el texto de tu post.
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Tags</label>
+            <input 
+              type="text" 
+              class="form-control"
+              name="tags"
+              formControlName="tags" #tags>
+        </div>
+
+
+        <button 
+            type="button" 
+            class="btn btn-primary" 
+            (click)="addNewpost()">
+                Enviar
+        </button>
+        
+        
+        
+    </form>
+</div>
